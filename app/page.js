@@ -380,10 +380,10 @@ const slides = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(1);
-
+  const [height, setHeight] = useState(null);
   const [scrollPosition, setScrollPosition] = useState({
     position: 0,
-    height: window.innerHeight,
+    height: 0,
   });
 
   const handleScroll = () => {
@@ -400,6 +400,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
+
+  useEffect(() => {
     // console.log(scrollPosition);
     // console.log(currentSlide);
     // if(scrollPosition)
@@ -407,17 +411,18 @@ export default function Home() {
   }, [scrollPosition]);
 
   const slidesFunction = () => {
-    if (scrollPosition.height > scrollPosition.position) {
+    if (height == null) return;
+    if (height > scrollPosition.position) {
       return setCurrentSlide(1);
-    } else if (scrollPosition.height * 2 > scrollPosition.position) {
+    } else if (height * 2 > scrollPosition.position) {
       return setCurrentSlide(2);
-    } else if (scrollPosition.height * 3 > scrollPosition.position) {
+    } else if (height * 3 > scrollPosition.position) {
       return setCurrentSlide(3);
-    } else if (scrollPosition.height * 4 > scrollPosition.position) {
+    } else if (height * 4 > scrollPosition.position) {
       return setCurrentSlide(4);
-    } else if (scrollPosition.height * 5 > scrollPosition.position) {
+    } else if (height * 5 > scrollPosition.position) {
       return setCurrentSlide(5);
-    } else if (scrollPosition.height * 6 > scrollPosition.position) {
+    } else if (height * 6 > scrollPosition.position) {
       return setCurrentSlide(6);
     } else {
       return setCurrentSlide(7);
