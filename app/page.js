@@ -164,8 +164,9 @@ const slides = [
     text: "We are the best web development company in the world",
     caseStudy: false,
     // img: '/assets/world-communication-awards-for-best-digital-experience.png',
-    heading: "Dominos",
-    subheading: "on appstore & google playstore",
+    heading: "UX Strategy",
+    subheading: "and UI design",
+    supheading: "Redifining",
     bgColor: "bg-blue-950",
     imgComponent: (
       <div className="relative w-full mx-auto h-full bg-gray-800 animate__animated animate__fadeIn">
@@ -503,6 +504,7 @@ export default function Home() {
           .filter((slide) => slide.id == currentSlide)
           .map((slide) => (
             <DesktopLayout
+              key={slide.id}
               slide={slide}
               bgColor={slide.bgColor}
               currentSlide={currentSlide}

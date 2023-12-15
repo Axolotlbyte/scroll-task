@@ -354,35 +354,62 @@ export default function DesktopLayout({ currentSlide, slide, bgColor }) {
               height={540}
               priority
             />
-            <div style={{left: ( slide.id == 1 || slide.id == 6 ? '-40%' : "")}} className="absolute flex flex-col">
-              {slide.supheading ? <h3 className="text-2xl">{slide.supheading}</h3> : ""}
-              <h1 className="text-6xl whitespace-nowrap font-bold animate__animated animate__slideInUp pr-5">
-                {slide.heading}
-              </h1>
-              <h2 className="text-2xl py-2 self-end">
-                {slide.subheading}
-              </h2>
+            <div
+              style={{ left: slide.id == 1 || slide.id == 6 ? "-40%" : "" }}
+              className="absolute flex flex-col animate__animated animate__slideInUp"
+            >
+              {slide.supheading ? (
+                <h3 className="text-2xl animate__animated animate__slideInUp">
+                  {slide.supheading}
+                </h3>
+              ) : (
+                ""
+              )}
+              {slide.headingImg ? (
+                <Image
+                  src={slide.headingImg}
+                  alt={""}
+                  className={
+                    "bg-transparent w-full py-2 bg-opacity-50 animate__animated animate__slideInUp"
+                    // + ` ${borderColor}`
+                  }
+                  width={1200}
+                  height={24}
+                  priority
+                />
+              ) : (
+                <h1 className="text-6xl whitespace-nowrap font-bold animate__animated animate__slideInUp pr-5">
+                  {slide.heading}
+                </h1>
+              )}
+
+              <h2 className="text-2xl py-2 self-end">{slide.subheading}</h2>
             </div>
           </div>
         </div>
 
         <div className=" p-10 px-16 flex flex-col gap-8 justify-start ">
-          <Image
-            src={
-              "/assets/world-communication-awards-for-best-digital-experience.png"
-            }
-            alt={""}
-            className={
-              "bg-white w-3/4 rounded-lg border-2 bg-opacity-50"
-              // + ` ${borderColor}`
-            }
-            width={1200}
-            height={24}
-            priority
-          />
-          <h1 className="text-6xl font-bold">ABC 123</h1>
-          <p className="w-3/4 text-lg">
-            We are the best web development company in the world.
+          {slide.img ? (
+            <Image
+              src={slide.img}
+              alt={""}
+              className={
+                "bg-white w-3/4 rounded-lg border-2 bg-opacity-50 animate__animated animate__slideInUp"
+                // + ` ${borderColor}`
+              }
+              width={1200}
+              height={24}
+              priority
+            />
+          ) : (
+            ""
+          )}
+
+          <h1 className="text-6xl font-bold animate__animated animate__slideInUp">
+            {slide.name}
+          </h1>
+          <p className="w-3/4 text-lg animate__animated animate__slideInUp">
+            {slide.text}
           </p>
           <button className="flex text-xl font-medium items-center justify-start pt-10 gap-3">
             View Case Study
