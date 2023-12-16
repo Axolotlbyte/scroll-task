@@ -43,9 +43,11 @@ export default function Carousel({ slides }) {
         className="mySwiper w-full h-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide className="w-full h-full flex items-center justify-center">
+          <SwiperSlide
+            key={slide.id}
+            className="w-full h-full flex items-center justify-center"
+          >
             <SlideLayout
-              key={slide.id}
               title={slide.name}
               text={slide.text}
               bgColor={slide.bgColor}
