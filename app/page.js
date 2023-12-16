@@ -433,7 +433,7 @@ export default function Home() {
     <main className="relative flex flex-col items-center justify-between">
       {/* Mobile */}
       <div className="lg:hidden h-screen w-full">
-        <Carousel />
+        <Carousel slides={slides} />
       </div>
 
       {/* Desktop */}

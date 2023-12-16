@@ -8,10 +8,13 @@ export default function SlideLayout({
   buttonColor,
   title,
   text,
+  imgComponent
 }) {
   return (
     <>
-      <div className="w-full h-3/5 bg-white"></div>
+      <div className="w-full h-3/5 bg-white">
+        {imgComponent}
+      </div>
       <div
         className={
           "relative flex flex-col justify-start gap-5 items-start p-5 w-full h-2/5" +
@@ -23,7 +26,9 @@ export default function SlideLayout({
             <Image
               src={img}
               alt={img}
-              className={"bg-white w-3/5 rounded-lg border-2" + ` ${borderColor}`}
+              className={
+                "bg-white w-3/5 rounded-lg border-2" + ` ${borderColor}`
+              }
               width={100}
               height={24}
               priority
@@ -33,9 +38,7 @@ export default function SlideLayout({
           ""
         )}
         <h1 className="text-4xl font-semibold pt-12">{title}</h1>
-        <p className="">
-          {text}
-        </p>
+        <p className="">{text}</p>
         {caseStudy ? (
           <button className="flex font-medium items-center py-5 justify-center gap-3">
             View Case Study
@@ -54,7 +57,11 @@ export default function SlideLayout({
         ) : (
           <div className="flex font-medium items-center py-5 justify-center gap-3">
             CASE STUDY -
-            <button className={"p-3 px-5 rounded-l-full rounded-r-full" + ` ${buttonColor}`}>
+            <button
+              className={
+                "p-3 px-5 rounded-l-full rounded-r-full" + ` ${buttonColor}`
+              }
+            >
               Coming Soon
             </button>
           </div>
